@@ -89,6 +89,8 @@ REM ----- Copy template files if template folder exists -----
 if exist "template" (
     echo Copying template files to profile...
     xcopy "template\*" "!PROFILE_DIR!\" /E /I /Y >nul
+) else (
+    echo WARNING: 'template' folder not found. No default files copied.
 )
 
 REM ----- Create config.json inside profile -----
@@ -101,62 +103,6 @@ REM ----- Create config.json inside profile -----
 ) > "!PROFILE_DIR!\config.json"
 echo config.json created.
 
-REM ----- Create portablemc-run.bat inside profile -----
-(
-    echo @echo off
-    echo setlocal enabledelayedexpansion
-    echo.
-    echo REM Get the directory where this script resides ^(the profile folder^)
-    echo set "SCRIPT_DIR=%%~dp0"
-    echo.
-    echo REM Read config.json using PowerShell
-    echo set "CONFIG_FILE=%%SCRIPT_DIR%%config.json"
-    echo if not exist "%%CONFIG_FILE%%" ^(
-    echo     echo config.json not found in profile folder.
-    echo     pause
-    echo     exit /b 1
-    echo ^)
-    echo.
-    echo REM Extract values from config.json
-    echo for /f "usebackq delims=" %%%%A in ^(`
-    echo     powershell -NoProfile -Command ^
-    echo     "$c = Get-Content '%%CONFIG_FILE%%' -Raw ^| ConvertFrom-Json; ^
-    echo     Write-Output ('USERNAME=' + $c.username); ^
-    echo     Write-Output ('MODLOADER=' + $c.modloader); ^
-    echo     Write-Output ('JAVA_ARGS=' + $c.javaArgs)"`
-    echo `^) do set "%%%%A"
-    echo.
-    echo if "%%USERNAME%%"=="" ^(
-    echo     echo Failed to read username from config.json
-    echo     pause
-    echo     exit /b 1
-    echo ^)
-    echo.
-    echo REM Path to portablemc executable ^(adjust if needed^)
-    echo set "PORTABLEMC_PATH=%%SCRIPT_DIR%%..\..\portablemc-exe\portablemc.exe"
-    echo if not exist "%%PORTABLEMC_PATH%%" ^(
-    echo     echo portablemc.exe not found at %%PORTABLEMC_PATH%%
-    echo     pause
-    echo     exit /b 1
-    echo ^)
-    echo.
-    echo echo Starting Minecraft with profile: %%~n0
-    echo "%%PORTABLEMC_PATH%%" start ^
-    echo     --work-dir "%%SCRIPT_DIR%%" ^
-    echo     --username "%%USERNAME%%" ^
-    echo     --modloader "%%MODLOADER%%" ^
-    echo     --java-args "%%JAVA_ARGS%%"
-    echo.
-    echo if errorlevel 1 ^(
-    echo     echo Launch failed.
-    echo     pause
-    echo     exit /b 1
-    echo ^)
-    echo echo Done.
-    echo pause
-) > "!PROFILE_DIR!\portablemc-run.bat"
-
-echo portablemc-run.bat created inside profile folder.
 echo.
 echo ========================================
 echo Profile "!PROFILE_NAME!" created successfully!
