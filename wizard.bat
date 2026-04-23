@@ -6,15 +6,14 @@ echo  Minecraft PortableMC Bootstrapper
 echo ========================================
 echo.
 
-set "TARGET_DIR=%APPDATA%\.minecraft\portablemc"
+set "TARGET_DIR=%AppData%\.minecraft\portablemc"
 
 REM ----- Check if already installed -----
 if exist "%TARGET_DIR%\create_profile.bat" (
     echo Environment already exists at: %TARGET_DIR%
     echo To reinstall from scratch, delete or rename that folder first.
     echo.
-    echo Do you want to run the profile creator anyway? (Y/N)
-    set /p "run_creator="
+    set /p "run_creator=Do you want to run the profile creator anyway? (Y/N): "
     if /i "!run_creator!"=="Y" (
         cd /d "%TARGET_DIR%"
         call create_profile.bat
@@ -46,7 +45,7 @@ if errorlevel 1 (
     exit /b 1
 )
 
-REM Download the repository archive (using branch 'master')
+REM Download the repository archive
 echo Downloading repository...
 curl -L -o master.zip https://github.com/skelitheprogrammer/minecraft-portable-template/archive/refs/heads/master.zip
 if errorlevel 1 (
@@ -55,7 +54,7 @@ if errorlevel 1 (
     exit /b 1
 )
 
-REM Extract directly into current folder (strip top-level folder)
+REM Extract directly into current folder
 echo Extracting files...
 tar -xf master.zip --strip-components=1
 if errorlevel 1 (
