@@ -13,7 +13,7 @@ echo ========================================
 echo.
 
 REM ----- Get modpack name -----
-set /p "PROFILE_NAME=Enter modpack name: "
+set /p "PROFILE_NAME=Enter modpack name (required): "
 if "!PROFILE_NAME!"=="" (
     echo No name entered. Exiting.
     exit /b 1
@@ -50,25 +50,39 @@ if exist "!PROFILE_DIR!" (
 )
 
 REM ----- Get username -----
-set /p "USERNAME=Enter Minecraft username: "
+set /p "USERNAME=Enter Minecraft username (required): "
 if "!USERNAME!"=="" (
     echo No username entered. Exiting.
     exit /b 1
 )
 
 REM ----- Get modloader version -----
-echo Enter modloader version (e.g., fabric-0.15.11, forge-47.2.0):
+echo Enter modloader version (no default, must provide)
+echo Examples: fabric-0.15.11, forge-47.2.0, neoforge::21.1.227
 set /p "MODLOADER=Modloader version: "
 if "!MODLOADER!"=="" (
     echo No modloader version entered. Exiting.
     exit /b 1
 )
 
-REM ----- Get Java arguments -----
-echo Enter Java arguments (e.g., -Xmx4G -XX:+UseG1GC):
-set /p "JAVA_ARGS=Java args: "
-if "!JAVA_ARGS!"=="" set "JAVA_ARGS=-Xmx2G"
+REM ----- Get Java arguments (with default shown) -----
+echo.
+echo Java arguments control memory and performance settings.
+set /p "JAVA_ARGS=Enter Java arguments (default: -Xmx2G) (e.g., -Xmx4G -XX:+UseG1GC): "
+if "!JAVA_ARGS!"=="" (
+    set "JAVA_ARGS=-Xmx2G"
+    echo Using default Java arguments: -Xmx2G
+)
 
+REM ----- Show summary of what will be used -----
+echo.
+echo ========================================
+echo Summary:
+echo   Profile name: !PROFILE_NAME!
+echo   Username:     !USERNAME!
+echo   Modloader:    !MODLOADER!
+echo   Java args:    !JAVA_ARGS!
+echo ========================================
 echo.
 echo Creating profile "!PROFILE_NAME!"...
 echo.
@@ -107,9 +121,8 @@ echo.
 echo ========================================
 echo Profile "!PROFILE_NAME!" created successfully!
 echo.
-echo To launch this profile, run:
-echo   cd /d "!PROFILE_DIR!"
-echo   portablemc-run.bat
+echo Opening profile folder in Explorer...
+start "" "!PROFILE_DIR!"
 echo ========================================
 pause
 exit /b 0
