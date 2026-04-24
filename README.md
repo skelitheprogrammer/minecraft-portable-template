@@ -19,3 +19,6 @@
 ```
  curl -L -o wizard.bat https://raw.githubusercontent.com/skelitheprogrammer/minecraft-portable-template/master/wizard.bat && wizard.bat 
 ```
+## Запуск
+Чтобы запустить клиент, нужно запустить `portablemc-run.ps1` скрипт
+В первый раз он установит все нужные файлы. В последующие будет запускать клиент.
