@@ -63,6 +63,6 @@ Write-Host "Bootstrap complete! Files installed to $targetDir"
 Write-Host ""
 
 Write-Host "Creating a modpack profile..."
-& ".\create_profile.bat"
+& ".\create_profile.ps1"
 
 Read-Host "Press Enter to exit"
