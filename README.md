@@ -10,7 +10,7 @@
 ↓↓↓↓↓↓↓↓↓↓↓
 
 
-[wizard installer](https://raw.githubusercontent.com/skelitheprogrammer/minecraft-portable-template/master/wizard.bat)  ←←←←←←←←
+[wizard installer](https://raw.githubusercontent.com/skelitheprogrammer/minecraft-portable-template/refs/heads/master/wizard.ps1)  ←←←←←←←←
 
 ↑↑↑↑↑↑↑↑↑↑↑
 
