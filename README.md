@@ -1,24 +1,18 @@
-# !!ВАЖНО!!
-Без VPN не скачает с серваков нужные файлы
+# ⚠️ Важное предупреждение
 
-Когда попросит выполнить скрипт `portablemc-run.ps1` - нажмите по файлу ПКМ -> `Выполнить с помощью Powershell`
+> **Без VPN загрузка файлов с серверов невозможна!**  
+> Убедитесь, что VPN включен **до** начала установки.
 
-# Установка
+---
 
-Скачать установщик, нажав пкм -> `Сохранить ссылку как...`
+# 🚀 Установка клиента
 
-↓↓↓↓↓↓↓↓↓↓↓
+Нажмите правой кнопкой мыши по ссылке ниже и выберите **«Сохранить ссылку как…»**
 
+### 📥 [wizard installer](https://raw.githubusercontent.com/skelitheprogrammer/minecraft-portable-template/refs/heads/master/wizard.ps1)
 
-[wizard installer](https://raw.githubusercontent.com/skelitheprogrammer/minecraft-portable-template/refs/heads/master/wizard.ps1)  ←←←←←←←←
+**Альтернативный способ (через консоль):**  
+Выполните эту команду в выбранной папке:
 
-↑↑↑↑↑↑↑↑↑↑↑
-
-или вписать консольную команду в выбранной папке
-
-```
- curl -L -o wizard.bat https://raw.githubusercontent.com/skelitheprogrammer/minecraft-portable-template/master/wizard.bat && wizard.bat 
-```
-## Запуск
-Чтобы запустить клиент, нужно запустить `portablemc-run.ps1` скрипт
-В первый раз он установит все нужные файлы. В последующие будет запускать клиент.
+```cmd
+curl -L -o wizard.bat https://raw.githubusercontent.com/skelitheprogrammer/minecraft-portable-template/master/wizard.bat && wizard.bat
