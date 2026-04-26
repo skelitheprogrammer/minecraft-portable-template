@@ -15,7 +15,7 @@ if (Test-Path $targetDir) {
     $runCreator = Read-Host "Do you want to run the profile creator anyway? (Y/N)"
     if ($runCreator -eq "Y" -or $runCreator -eq "y") {
         Set-Location $targetDir
-        & ".\create_profile.bat"
+        & ".\create_profile.ps1"
     } else {
         Write-Host "Exiting."
     }
