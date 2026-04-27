@@ -7,16 +7,19 @@
 
 # 🚀 Установка клиента
 
-Нажмите правой кнопкой мыши по ссылке ниже и выберите **«Сохранить ссылку как…»**
+### Нажмите правой кнопкой мыши по ссылке и выберите **«Сохранить ссылку как…»** 📥 [wizard installer](https://raw.githubusercontent.com/skelitheprogrammer/minecraft-portable-template/refs/heads/master/wizard.ps1)
 
-### 📥 [wizard installer](https://raw.githubusercontent.com/skelitheprogrammer/minecraft-portable-template/refs/heads/master/wizard.ps1)
-
-**Альтернативный способ (через консоль):**  
+<details>
+    <summary>Альтернативный способ (через консоль)</summary>
+    
 Выполните эту команду в выбранной папке:
 
 ```cmd
 curl -L -o wizard.bat https://raw.githubusercontent.com/skelitheprogrammer/minecraft-portable-template/master/wizard.bat && wizard.bat
 ```
+</details>
+
+
 
 
 # :inbox_tray: Процесс установки
