@@ -7,29 +7,15 @@
 
 # 🚀 Установка клиента
 
-### Нажмите правой кнопкой мыши по ссылке и выберите **«Сохранить ссылку как…»** 📥 [wizard installer](https://raw.githubusercontent.com/skelitheprogrammer/minecraft-portable-template/refs/heads/master/wizard.ps1)
-
-<details>
-    <summary>Альтернативный способ (через консоль)</summary>
-    
-Выполните эту команду в выбранной папке:
-
-```cmd
-curl -L -o wizard.bat https://raw.githubusercontent.com/skelitheprogrammer/minecraft-portable-template/master/wizard.bat && wizard.bat
-```
-</details>
-
-
-
+Перейдите на страничку [релизов](https://github.com/skelitheprogrammer/minecraft-portable-template/releases) и скачайте свежий архив
 
 # :inbox_tray: Процесс установки
-1. Скачивание
-    Либо из репозитория
-    Либо по прикреплённой ссылке из Discord
+1. Распакуйте архив в удобном месте. Это будет ваше место установки
 
-2. Запустите скрипт
-Он подготовит файлы и автоматически запустит create-profile.ps1.
+2. Запустите скрипт `create_profile.bat`
 
+   Скрипт позволяет создавать новые профили для различных сборок.
+   
 3. Настройка профиля
 
     Выберите название профиля
@@ -42,8 +28,9 @@ curl -L -o wizard.bat https://raw.githubusercontent.com/skelitheprogrammer/minec
     или примите дефолтные — 8 ГБ ОЗУ
 
 4. Запуск
-     Запустите скрипт `portablemc-run.ps1`
-
+    
+    Запустите скрипт `portablemc_run.bat`
+    
 5. Ожидание
     Дождитесь полной установки.
 ### :warning::warning::warning: Если не качается — используйте VPN.:warning::warning::warning:
@@ -62,4 +49,5 @@ curl -L -o wizard.bat https://raw.githubusercontent.com/skelitheprogrammer/minec
 10. Играц 
 
 # Будущее использование
-Каждый раз, когда понадобится новый профиль, запустить `create_profile.ps1`
+Каждый раз, когда понадобится новый профиль, запустить `create_profile.bat`
+Создайте ярлык `portablemc_run.bat` из выбранного профиля, чтобы не заходить по пути
