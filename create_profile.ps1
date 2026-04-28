@@ -1,16 +1,6 @@
 [Console]::OutputEncoding = [System.Text.Encoding]::UTF8
 chcp 65001 > $null
 
-$currentFolder = Split-Path (Get-Location) -Leaf
-$parentFolder = Split-Path (Split-Path (Get-Location)) -Leaf
-
-if ($currentFolder -ne "portablemc" -or $parentFolder -ne ".minecraft") {
-    Write-Host "ERROR: This script must be run from inside the .minecraft\portablemc folder."
-    Write-Host "Current directory: $(Get-Location)"
-    Read-Host "Press Enter to exit"
-    exit 1
-}
-
 Write-Host "========================================"
 Write-Host "  Minecraft PortableMC Profile Creator"
 Write-Host "========================================"
