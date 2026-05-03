@@ -48,3 +48,6 @@
 # Будущее использование
 Каждый раз, когда понадобится новый профиль, запустить `create_profile.bat`
 Создайте ярлык `portablemc_run.bat` из выбранного профиля, чтобы не заходить по пути
+
+# Credits
+Special credits to author of cli solution for launching minecraft clients - [portablemc](https://github.com/theorzr/portablemc)
